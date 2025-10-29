@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "python-hello-world"
+version = "0.1.0"
+description = "A simple Hello World project in Python."
+authors = ["Your Name <youremail@example.com>"]
+license = "MIT"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
