@@ -138,10 +138,6 @@ async def read_items(
         
 #        total = db.query(func.count(model_class)).scalar()
         items = db.query(model_class).offset(skip).limit(limit).all()
-#        items = db.query(table_name).offset(skip).limit(limit).all()
-
-
-
 
         columns = get_table_columns(table_name)
         serialized_items = [serialize_row(item, columns) for item in items]
@@ -245,7 +241,7 @@ async def create_item(
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@app.put("/api/{table_name}/{{record_id}}", tags=["Update"])
+@app.put("/api/{table_name}/{record_id}", tags=["Update"])
 async def update_item(
     table_name: str,
     record_id: Any,
@@ -297,7 +293,7 @@ async def update_item(
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@app.delete("/api/{table_name}/{{record_id}}", tags=["Delete"])
+@app.delete("/api/{table_name}/{record_id}", tags=["Delete"])
 async def delete_item(
     table_name: str,
     record_id: Any,
@@ -346,7 +342,7 @@ if __name__ == "__main__":
     print("=" * 60)
     print("🚀 Starting Northwind Microserver API")
     print("📊 Database: {DATABASE_URL.split('@')[1]}")
-    print("📖 Docs: http://localhost:8000/api/docs")
+    print("📖 Docs: http://10.1.2.18:8000/api/docs")
     print("=" * 60)
     
     uvicorn.run(
