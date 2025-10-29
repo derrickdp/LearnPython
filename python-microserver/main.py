@@ -225,6 +225,7 @@ async def create_item(
         db.commit()
         db.refresh(new_item)
         
+        
         columns = get_table_columns(table_name)
         serialized_item = serialize_row(new_item, columns)
         
