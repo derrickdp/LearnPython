@@ -16,8 +16,10 @@ A FastAPI-based microserver that provides RESTful API endpoints for the Northwin
 ### 1. Install Dependencies
 
 ```bash
-cd microserver
+cd python-microserver
 pip install -r requirements.txt
+
+if your python environment is managed by the os ---- then use that system, and instll the python packages (dnf, apt, ...)
 ```
 
 ### 2. Configure Environment
@@ -40,7 +42,7 @@ The default configuration connects to:
 python main.py
 ```
 
-The server will start on `http://localhost:8000`
+The server will start on `http://10.1.2.18:8000`
 
 ## API Documentation
 
